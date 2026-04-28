@@ -1,14 +1,14 @@
 package com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.messaging.entradapedido.dto;
 
-public class PedidoItemDTO {
+public class EntradaPedidoItemDTO {
 
     private Integer sku;
     private Integer amount;
 
-    public PedidoItemDTO() {
+    public EntradaPedidoItemDTO() {
     }
 
-    public PedidoItemDTO(Integer sku, Integer amount) {
+    public EntradaPedidoItemDTO(Integer sku, Integer amount) {
         this.sku = sku;
         this.amount = amount;
     }

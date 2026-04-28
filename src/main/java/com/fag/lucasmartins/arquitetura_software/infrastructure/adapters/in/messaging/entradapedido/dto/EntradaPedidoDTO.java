@@ -3,11 +3,11 @@ package com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.mes
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class PedidoDTO {
+public class EntradaPedidoDTO {
 
     private String zipCode;
     private Integer customerId;
-    private List<PedidoItemDTO> orderItems;
+    private List<EntradaPedidoItemDTO> orderItems;
     private String origin;
     private LocalDateTime occurredAt;
 
@@ -27,11 +27,11 @@ public class PedidoDTO {
         this.customerId = customerId;
     }
 
-    public List<PedidoItemDTO> getOrderItems() {
+    public List<EntradaPedidoItemDTO> getOrderItems() {
         return orderItems;
     }
 
-    public void setOrderItems(List<PedidoItemDTO> orderItems) {
+    public void setOrderItems(List<EntradaPedidoItemDTO> orderItems) {
         this.orderItems = orderItems;
     }
 

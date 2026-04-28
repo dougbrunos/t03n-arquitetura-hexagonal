@@ -4,19 +4,19 @@ import com.fag.lucasmartins.arquitetura_software.core.domain.bo.PedidoBO;
 import com.fag.lucasmartins.arquitetura_software.core.domain.bo.PedidoProdutoBO;
 import com.fag.lucasmartins.arquitetura_software.core.domain.bo.PessoaBO;
 import com.fag.lucasmartins.arquitetura_software.core.domain.bo.ProdutoBO;
-import com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.messaging.entradapedido.dto.PedidoDTO;
-import com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.messaging.entradapedido.dto.PedidoItemDTO;
+import com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.messaging.entradapedido.dto.EntradaPedidoDTO;
+import com.fag.lucasmartins.arquitetura_software.infrastructure.adapters.in.messaging.entradapedido.dto.EntradaPedidoItemDTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PedidoDTOMapper {
 
-    public static PedidoBO toBo(PedidoDTO pedidoDTO) {
+    public static PedidoBO toBo(EntradaPedidoDTO entradaPedidoDTO) {
         PedidoBO bo = new PedidoBO();
-        bo.setCep(pedidoDTO.getZipCode());
-        bo.setPessoa(mapearPessoa(pedidoDTO.getCustomerId()));
-        bo.setItens(mapearItens(pedidoDTO.getOrderItems()));
+        bo.setCep(entradaPedidoDTO.getZipCode());
+        bo.setPessoa(mapearPessoa(entradaPedidoDTO.getCustomerId()));
+        bo.setItens(mapearItens(entradaPedidoDTO.getOrderItems()));
         return bo;
     }
 
@@ -26,9 +26,9 @@ public class PedidoDTOMapper {
         return pessoaBO;
     }
 
-    private static List<PedidoProdutoBO> mapearItens(List<PedidoItemDTO> orderItems) {
+    private static List<PedidoProdutoBO> mapearItens(List<EntradaPedidoItemDTO> orderItems) {
         List<PedidoProdutoBO> itens = new ArrayList<>();
-        for (PedidoItemDTO item : orderItems) {
+        for (EntradaPedidoItemDTO item : orderItems) {
             PedidoProdutoBO pedidoProdutoBO = new PedidoProdutoBO();
 
             ProdutoBO produtoBO = new ProdutoBO();
